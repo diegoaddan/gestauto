@@ -17,5 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/cliente/novo', [App\Http\Controllers\ClienteController::class, 'create']);
+//Route::get('/cliente/novo', [App\Http\Controllers\ClienteController::class, 'create']);
+//Rota do formulario
 Route::get('/cv/new', [App\Http\Controllers\CVController::class, 'create']);
+
+Route::get('/upload-file', [FileUpload::class, 'createForm']);
+// Rota para adicionar o arquivo do curriculo, redirecionar atraves da pag
+Route::post('/upload-file', [FileUpload::class, 'fileUpload'])->name('fileUpload');
